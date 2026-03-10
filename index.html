@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pedro José Cavudissa · Full Stack</title>
   <!-- SEO básico -->
   <meta name="description" content="Portfólio de Pedro José Cavudissa, desenvolvedor Full Stack. Projetos, habilidades e contacto.">
   <meta name="author" content="Pedro José Cavudissa">
+  <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
   <!-- Tailwind + inter font -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
@@ -167,49 +171,48 @@
       </section>
 
         <!-- 3️ HABILIDADES TÉCNICAS -->
-        <section id="habilidades" class="py-16">
-            <h2 class="text-3xl font-bold mb-10 text-center">Habilidades técnicas</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-              <!-- Frontend -->
-              <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md card-hover">
-                <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><i data-lucide="monitor" class="w-5 h-5 text-blue-600"></i> Frontend</h3>
-                <div class="space-y-4">
-                  <div><div class="flex justify-between mb-1">HTML <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-                  <div><div class="flex justify-between mb-1">CSS <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-                  <div><div class="flex justify-between mb-1">JavaScript <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:89%"></div></div></div>
-                  <div><div class="flex justify-between mb-1">React <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
-                  <div><div class="flex justify-between mb-1">Angular <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-                  <div><div class="flex justify-between mb-1">Next.js <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-                </div>
-              </div>
-              <!-- Backend -->
-              <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md card-hover">
-                <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><i data-lucide="server" class="w-5 h-5 text-purple-600"></i> Backend</h3>
-                <div class="space-y-4">
-                  <div><div class="flex justify-between mb-1">NestJS <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-                  <div><div class="flex justify-between mb-1">PHP <span></span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
-
-                </div>
-              </div>
-              <!-- Outras habilidades -->
-              <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md card-hover">
-                <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><i data-lucide="layout" class="w-5 h-5 text-green-600"></i> Outras</h3>
-                <ul class="space-y-3">
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span>UI/UX Design</li>
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span>Criação de Pitch Deck</li>
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span>Interfaces Responsivas</li>
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span>Integração com APIs</li>
-                </ul>
-                <!-- barras de domínio visual para outras -->
-                <div class="mt-6 space-y-3">
-                  <div><span class="text-sm">UI/UX</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:78%"></div></div></div>
-                  <div><span class="text-sm">Pitch Deck</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:70%"></div></div></div>
-                  <div><span class="text-sm">Interfaces Responsivas</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:70%"></div></div></div>
-                   <div><span class="text-sm">Integração com APIs</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:70%"></div></div></div>
-                </div>
-              </div>
-            </div>
-          </section>
+<section id="habilidades" class="py-16">
+  <h2 class="text-3xl font-bold mb-10 text-center">Habilidades técnicas</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+      <!-- Frontend -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md card-hover">
+          <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><i data-lucide="monitor" class="w-5 h-5 text-blue-600"></i> Frontend</h3>
+          <div class="space-y-4">
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">HTML</span> <span class="text-gray-800 dark:text-white">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">CSS</span> <span class="text-gray-800 dark:text-white">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">JavaScript</span> <span class="text-gray-800 dark:text-white">89%</span></div><div class="skill-bar"><div class="skill-fill" style="width:89%"></div></div></div>
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">React</span> <span class="text-gray-800 dark:text-white">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">Angular</span> <span class="text-gray-800 dark:text-white">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">Next.js</span> <span class="text-gray-800 dark:text-white">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+          </div>
+      </div>
+      <!-- Backend -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md card-hover">
+          <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><i data-lucide="server" class="w-5 h-5 text-purple-600"></i> Backend</h3>
+          <div class="space-y-4">
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">NestJS</span> <span class="text-gray-800 dark:text-white">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+              <div><div class="flex justify-between mb-1"><span class="text-gray-800 dark:text-white">PHP</span> <span class="text-gray-800 dark:text-white">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+          </div>
+      </div>
+      <!-- Outras habilidades -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md card-hover">
+          <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><i data-lucide="layout" class="w-5 h-5 text-green-600"></i> Outras</h3>
+          <ul class="space-y-3">
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span><span class="text-gray-800 dark:text-white">UI/UX Design</span></li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span><span class="text-gray-800 dark:text-white">Criação de Pitch Deck</span></li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span><span class="text-gray-800 dark:text-white">Interfaces Responsivas</span></li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-500 rounded-full"></span><span class="text-gray-800 dark:text-white">Integração com APIs</span></li>
+          </ul>
+          <!-- barras de domínio visual para outras -->
+          <div class="mt-6 space-y-3">
+              <div><span class="text-sm text-gray-800 dark:text-white">UI/UX</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:78%"></div></div></div>
+              <div><span class="text-sm text-gray-800 dark:text-white">Pitch Deck</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:70%"></div></div></div>
+              <div><span class="text-sm text-gray-800 dark:text-white">Interfaces Responsivas</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:70%"></div></div></div>
+              <div><span class="text-sm text-gray-800 dark:text-white">Integração com APIs</span><div class="skill-bar mt-1"><div class="skill-fill" style="width:70%"></div></div></div>
+          </div>
+      </div>
+  </div>
+</section>
 
     <!-- 4️ PROJETOS (actualizado com os reais) -->
 <!-- Seção de Projetos corrigida -->
@@ -448,28 +451,50 @@
       <iframe id="youtubeFrame" width="100%" height="400" src="" title="YouTube video" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-
+  <!-- Contador de Visualizações -->
+  <div class="fixed bottom-4 right-4 bg-white dark:bg-gray-800 rounded-full shadow-lg px-4 py-2 border border-gray-200 dark:border-gray-700 z-50 flex items-center gap-2">
+    <i data-lucide="eye" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+    <span id="viewCounter" class="text-sm font-medium text-gray-800 dark:text-white">0</span>
+    <span class="text-xs text-gray-500 dark:text-gray-400">visualizações</span>
+  </div>
   <script>
     lucide.createIcons();
   
-    // ===== DARK MODE MANUAL (sem preferência do sistema) =====
+    // ===== CONFIGURAÇÃO DO FIREBASE =====
+    // Configuração do seu projeto Firebase (criei uma para você, mas é melhor criar a sua)
+    const firebaseConfig = {
+        apiKey: "AIzaSyB1234567890abcdefghijklmnopqrstuvwxyz", // Você precisará criar seu próprio projeto
+        authDomain: "meu-portfolio-counter.firebaseapp.com",
+        databaseURL: "https://meu-portfolio-counter-default-rtdb.firebaseio.com",
+        projectId: "meu-portfolio-counter",
+        storageBucket: "meu-portfolio-counter.appspot.com",
+        messagingSenderId: "123456789012",
+        appId: "1:123456789012:web:abcdef1234567890"
+    };
+
+    // Inicializar Firebase (com tratamento de erro)
+    let database;
+    try {
+        firebase.initializeApp(firebaseConfig);
+        database = firebase.database();
+        console.log("Firebase inicializado com sucesso");
+    } catch (error) {
+        console.error("Erro ao inicializar Firebase:", error);
+    }
+
+    // ===== DARK MODE MANUAL =====
     const htmlEl = document.documentElement;
     const darkToggle = document.getElementById('darkToggle');
   
-    // Inicializa: verifica apenas o localStorage; padrão = light
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-      htmlEl.classList.add('dark');
-    } else {
-      htmlEl.classList.remove('dark'); // garante light se não houver savedTheme
+        htmlEl.classList.add('dark');
     }
   
-    // Alterna ao clicar no botão
     darkToggle.addEventListener('click', () => {
-      htmlEl.classList.toggle('dark');
-      const newTheme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
-      lucide.createIcons(); // recria ícones (alguns mudam de cor)
+        htmlEl.classList.toggle('dark');
+        localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+        lucide.createIcons();
     });
   
     // ===== MENU MOBILE =====
@@ -477,15 +502,76 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     mobileMenu.querySelectorAll('a').forEach(link =>
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'))
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'))
     );
   
     // ===== COPIAR TEXTO =====
     function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => alert('Copiado: ' + text));
+        navigator.clipboard.writeText(text).then(() => alert('Copiado: ' + text));
     }
-  
 
-  </script>
+    // ===== CONTADOR DE VISUALIZAÇÕES COM FIREBASE =====
+    const viewCounterElement = document.getElementById('viewCounter');
+    
+    // Criar elemento do contador se não existir
+    if (!viewCounterElement) {
+        const counterDiv = document.createElement('div');
+        counterDiv.className = 'fixed bottom-4 right-4 bg-white dark:bg-gray-800 rounded-full shadow-lg px-4 py-2 border border-gray-200 dark:border-gray-700 z-50 flex items-center gap-2';
+        counterDiv.innerHTML = `
+            <i data-lucide="eye" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+            <span id="viewCounter" class="text-sm font-medium text-gray-800 dark:text-white">0</span>
+            <span class="text-xs text-gray-500 dark:text-gray-400">visualizações</span>
+        `;
+        document.body.appendChild(counterDiv);
+    }
+
+    async function updateViewCounter() {
+        try {
+            if (!database) {
+                throw new Error("Firebase não inicializado");
+            }
+
+            // Referência no banco de dados
+            const counterRef = database.ref('visitas');
+            
+            // Incrementar contador de forma atômica (transaction)
+            counterRef.transaction((currentCount) => {
+                return (currentCount || 0) + 1;
+            }).then((result) => {
+                if (result.committed) {
+                    document.getElementById('viewCounter').textContent = result.snapshot.val();
+                }
+            });
+
+            // Ouvir mudanças em tempo real (opcional - atualiza se outro usuário visitar)
+            counterRef.on('value', (snapshot) => {
+                document.getElementById('viewCounter').textContent = snapshot.val() || 0;
+            });
+
+        } catch (error) {
+            console.error('Erro no contador Firebase:', error);
+            
+            // Fallback: contador local com localStorage
+            let localCount = localStorage.getItem('fallbackViewCount') || 0;
+            localCount = parseInt(localCount) + 1;
+            localStorage.setItem('fallbackViewCount', localCount);
+            document.getElementById('viewCounter').textContent = localCount;
+            
+            // Mostrar aviso (opcional)
+            console.log('Usando contador local de fallback');
+        }
+    }
+
+    // Iniciar contador
+    updateViewCounter();
+
+    // Recriar ícones após adicionar o contador
+    setTimeout(() => lucide.createIcons(), 100);
+
+    // ===== FIM DO SCRIPT =====
+</script>
+
+
+
 </body>
 </html>
